@@ -6,31 +6,73 @@
     <title>Resume</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Courier New", Courier, monospace;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to bottom right, #0F4C75, #1B8EB7);
-            color: #333; /* Text color black */
+            background-image: linear-gradient(to right bottom, #232426, #242527, #242628, #252729, #25282a, #25282a, #26292a, #26292a, #26282a, #262829, #252729, #252728);        
         }
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #f5f5f5; /* Light gray */
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        h1, h2, h3 {
-            color: #333;
-        }
-        .header {
+        #hero {
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+            transition: opacity 0.5s ease;
+        }
+        .profile-pic-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            transition: transform 1s ease;
         }
         .profile-pic {
             width: 150px;
             height: 150px;
-            border-radius: 50%; /* Make it circular */
+            border-radius: 50%;
+        }
+        #container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-image: linear-gradient(to left top, #a3a3a3, #a0a0a0, #9c9c9c, #999999, #969696, #969696, #969696, #969696, #999999, #9c9c9c, #a0a0a0, #a3a3a3);            
+            color: #333;
+            border-radius: 20px;
+            overflow-y: auto;
+            height: auto;
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 1ms ease;
+        }
+        h1, h2, h3 {
+            color: #fff;
+            font-family: "Courier New", Courier, monospace;
+        }
+        .typewriter {
+            font-family: "Courier New", Courier, monospace;
+            display: block;
+            overflow: hidden;
+            border-right: .15em solid rgb(164, 77, 231);
+            white-space: nowrap;
+            letter-spacing: .15em;
+            width: 22ch;
+            animation: typing 2s steps(22, end), blink-caret .75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 22ch }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: rgb(252, 118, 0); }
+        }
+        .header {
+            text-align: center;
             margin-bottom: 20px;
         }
         .contact-info {
@@ -44,22 +86,21 @@
             width: 30px;
             height: auto;
         }
+        .contact-info p, .section-content p {
+            margin-bottom: 10px;
+        }
         .section-title {
             margin-top: 30px;
         }
         .section-content {
             margin-bottom: 20px;
-            color: #333; /* Text color black */
-        }
-        .contact-info p, .section-content p {
-            margin-bottom: 10px;
         }
         ul {
             margin-top: 0;
             padding-left: 20px;
         }
         a {
-            color: #333;
+            color: #007bff;
             text-decoration: none;
         }
         a:hover {
@@ -68,11 +109,12 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <img src="https://imgur.com/IDTS2Xb.png" alt="Profile Picture" class="profile-pic">
-            <h1>Rushiraj Somnath Birajdar</h1>
-        </div>
+    <div id="hero">
+        <img src="https://imgur.com/IDTS2Xb.png" alt="Profile Picture" class="profile-pic">
+        <h1 class="typewriter">Hi, I am Rushiraj.</h1>
+    </div>
+
+    <div id="container">
         <div class="contact-info">
             <a href="https://www.linkedin.com/in/rushirajbirajdar" target="_blank"><img src="https://w7.pngwing.com/pngs/940/589/png-transparent-linkedin-free-text-telephone-call-trademark-thumbnail.png" alt="LinkedIn"></a>
             <a href="https://www.instagram.com/rushiraj.birajdar/" target="_blank"><img src="https://w7.pngwing.com/pngs/31/164/png-transparent-instagram-vector-brand-logos-icon-thumbnail.png" alt="Instagram"></a>
@@ -101,7 +143,7 @@
             <h3>Secondary Education (12th Grade)</h3>
             <p>D.B.F. Dayanand Junior College</p>
             <p>Board: HSC (Maharashtra State Board)</p>
-            <p>Date: 2021 - 2022</p>
+            <p>Date: 2020 - 2022</p>
 
             <h3>Primary Education (10th Grade)</h3>
             <p>Sinhgad Public School</p>
@@ -123,12 +165,29 @@
         <h2 class="section-title">Extracurricular Activities</h2>
         <div class="section-content">
             <ul>
-                <li>Participated in Dance Shows "JAY JAY MAHARASHTRA" and assisted in organizing for the past 6 years.</li>
+                <li>Participated in Dance Shows "JAY JAY MAHARASHTRA" and assisted in organizing for the past 8 years.</li>
                 <li>Won awards in film making competitions at WITHEATER.</li>
                 <li>Involved in theater performances.</li>
                 <li>Experience in show anchoring.</li>
             </ul>
         </div>
     </div>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            var hero = document.getElementById('hero');
+            var container = document.getElementById('container');
+            var scrollPosition = window.scrollY;
+            var opacity = 1 - (scrollPosition / 500); // Adjust 500 to change scroll sensitivity
+
+            if (opacity < 0) {
+                opacity = 0; // Ensure opacity doesn't go below 0
+            }
+
+            hero.style.opacity = opacity;
+            container.style.opacity = 1 - opacity;
+        });
+    </script>
 </body>
 </html>
+

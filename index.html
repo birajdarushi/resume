@@ -39,7 +39,8 @@
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
-            background-image: radial-gradient(circle, #de1c8a, #fb336c, #ff594d, #ff812c, #faa800, #fca212, #fe9c1d, #ff9626, #ff6259, #ff3c92, #c249c7, #3262e5);            color: #333;
+            background-image: linear-gradient(to left top, #a3a3a3, #a0a0a0, #9c9c9c, #999999, #969696, #969696, #969696, #969696, #999999, #9c9c9c, #a0a0a0, #a3a3a3);            
+            color: #333;
             border-radius: 20px;
             overflow-y: auto;
             height: auto;
@@ -94,6 +95,7 @@
             #sidebar ul li a:hover {
                 background-color: #575757;
             }
+
         .typewriter {
             font-family: "Courier New", Courier, monospace;
             display: block;
@@ -154,17 +156,27 @@
         <img src="https://imgur.com/IDTS2Xb.png" alt="Profile Picture" class="profile-pic">
         <h1 class="typewriter">Hi, I am Rushiraj.</h1>
     </div>
-
+    <div class="menu-btn" id="menu-btn">
+        &#9776;
+    </div>
+    <nav id="sidebar">
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#container">About</a></li>
+            <li><a href="#container">Education</a></li>
+            <li><a href="#container">Skills</a></li>
+            <li><a href="#container">Extracurricular</a></li>
+        </ul>
+    </nav>
+    
     <div id="container">
         <div class="contact-info">
             <a href="https://www.linkedin.com/in/rushirajbirajdar" target="_blank"><img src="https://w7.pngwing.com/pngs/940/589/png-transparent-linkedin-free-text-telephone-call-trademark-thumbnail.png" alt="LinkedIn"></a>
             <a href="https://www.instagram.com/rushiraj.birajdar/" target="_blank"><img src="https://w7.pngwing.com/pngs/31/164/png-transparent-instagram-vector-brand-logos-icon-thumbnail.png" alt="Instagram"></a>
-            <a href="https://discord.com/channels/@me" target="_blank"><img src="https://w7.pngwing.com/pngs/89/257/png-transparent-discord-computer-icons-logo-simplify-miscellaneous-logo-online-chat-thumbnail.png" alt="Discord"></a>
+            <a href="#" target="_blank"><img src="https://w7.pngwing.com/pngs/89/257/png-transparent-discord-computer-icons-logo-simplify-miscellaneous-logo-online-chat-thumbnail.png" alt="Discord"></a>
             <p>Email: birajdarushi@gmail.com</p>
             <p>Phone: 7559444023</p>
             <p>Location: Solapur, Maharashtra, India</p>
-            
-
         </div>
 
         <h2 class="section-title">Professional Summary</h2>
@@ -217,6 +229,7 @@
     </div>
 
     <script>
+
         document.getElementById('menu-btn').addEventListener('click', function(event) {
             var sidebar = document.getElementById('sidebar');
             sidebar.style.left = '0';
@@ -233,6 +246,8 @@
                 sidebar.style.left = '-250px';
             }
         });
+
+
         window.addEventListener('scroll', function() {
             var hero = document.getElementById('hero');
             var container = document.getElementById('container');
@@ -245,6 +260,7 @@
 
             hero.style.opacity = opacity;
             container.style.opacity = 1 - opacity;
+            
         });
     </script>
 </body>

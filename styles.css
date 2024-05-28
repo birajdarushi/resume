@@ -1,0 +1,255 @@
+body {
+    font-family: "Courier New", Courier, monospace;
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(to right bottom, #232426, #242527, #242628, #252729, #25282a, #25282a, #26292a, #26292a, #26282a, #262829, #252729, #252728);       
+}
+#hero {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    transition: opacity 0.5s ease;
+}
+.profile-pic-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    transition: transform 1s ease;
+}
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+#container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-image: linear-gradient(to left top, #a3a3a3, #a0a0a0, #9c9c9c, #999999, #969696, #969696, #969696, #969696, #999999, #9c9c9c, #a0a0a0, #a3a3a3);            
+    color: #333;
+    border-radius: 20px;
+    overflow-y: auto;
+    height: auto;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 1ms ease;
+}
+h1, h2, h3 {
+    color: #fff;
+    font-family: "Courier New", Courier, monospace;
+}
+.spotify-card {
+    background: #1DB954;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+}
+#play-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #fff;
+    color: #1DB954;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.menu-btn {
+font-size: 30px;
+ position: fixed;
+top: 15px;
+left: 15px;
+z-index: 3;
+cursor: pointer;
+color: white;
+}
+
+#sidebar {
+height: 100vh;
+width: 250px;
+position: fixed;
+top: 0;
+left: -250px;
+background-color: #333;
+overflow-x: hidden;
+transition: 0.5s;
+z-index: 2;
+padding-top: 60px;
+}
+
+    #sidebar ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    #sidebar ul li {
+        padding: 8px 16px;
+        text-align: center;
+    }
+
+    #sidebar ul li a {
+        color: white;
+        text-decoration: none;
+        display: block;
+    }
+
+    #sidebar ul li a:hover {
+        background-color: #575757;
+    }
+    ul {
+    list-style: none;
+    }
+
+    .example-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    .example-2 .icon-content {
+    margin: 0 10px;
+    position: relative;
+    }
+    .example-2 .icon-content .tooltip {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    }
+    .example-2 .icon-content:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    top: -50px;
+    }
+    .example-2 .icon-content a {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: #4d4d4d;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+    }
+    .example-2 .icon-content a:hover {
+    box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
+    }
+    .example-2 .icon-content a svg {
+    position: relative;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+    }
+    .example-2 .icon-content a:hover {
+    color: white;
+    }
+    .example-2 .icon-content a .filled {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: #000;
+    transition: all 0.3s ease-in-out;
+    }
+    .example-2 .icon-content a:hover .filled {
+    height: 100%;
+    }
+
+    .example-2 .icon-content a[data-social="linkedin"] .filled,
+    .example-2 .icon-content a[data-social="linkedin"] ~ .tooltip {
+    background-color: #0274b3;
+    }
+
+    .example-2 .icon-content a[data-social="github"] .filled,
+    .example-2 .icon-content a[data-social="github"] ~ .tooltip {
+    background-color: #24262a;
+    }
+    .example-2 .icon-content a[data-social="instagram"] .filled,
+    .example-2 .icon-content a[data-social="instagram"] ~ .tooltip {
+    background: linear-gradient(
+        45deg,
+        #405de6,
+        #5b51db,
+        #b33ab4,
+        #c135b4,
+        #e1306c,
+        #fd1f1f
+    );
+    }
+    .example-2 .icon-content a[data-social="youtube"] .filled,
+    .example-2 .icon-content a[data-social="youtube"] ~ .tooltip {
+    background-color: #ff0000;
+    }
+
+.typewriter {
+    font-family: "Courier New", Courier, monospace;
+    display: block;
+    overflow: hidden;
+    border-right: .15em solid rgb(164, 77, 231);
+    white-space: nowrap;
+    letter-spacing: .15em;
+    width: 22ch;
+    animation: typing 2s steps(22, end), blink-caret .75s step-end infinite;
+}
+@keyframes typing {
+    from { width: 0 }
+    to { width: 22ch }
+}
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: rgb(252, 118, 0); }
+}
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.contact-info {
+    margin-bottom: 20px;
+}
+.contact-info a {
+    display: inline-block;
+    margin-right: 10px;
+}
+.contact-info a img {
+    width: 30px;
+    height: auto;
+}
+.contact-info p, .section-content p {
+    margin-bottom: 10px;
+}
+.section-title {
+    margin-top: 30px;
+}
+.section-content {
+    margin-bottom: 20px;
+}
+ul {
+    margin-top: 0;
+    padding-left: 20px;
+}
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}

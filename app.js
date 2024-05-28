@@ -14,9 +14,9 @@ document.addEventListener('click', function(event) {
         sidebar.style.left = '-250px';
     }
 });
+
 document.addEventListener('DOMContentLoaded', () => {
     const clientId = 'd64c225793754c8b930647622b8a2d7f';
-    const clientSecret = '17fbc6e2fcd046159e9752a37b01888e';
     const redirectUri = 'https://rushiraj.online/callback'; // Your redirect URI registered in Spotify Developer Dashboard
 
     const playButton = document.getElementById('play-button');
@@ -51,6 +51,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
             player.addListener('not_ready', ({ device_id }) => {
                 console.log('Device ID has gone offline', device_id);
+            });
+
+            player.addListener('initialization_error', ({ message }) => {
+                console.error(message);
+            });
+
+            player.addListener('authentication_error', ({ message }) => {
+                console.error(message);
+                authorizeUser(); // Reauthorize if authentication fails
+            });
+
+            player.addListener('account_error', ({ message }) => {
+                console.error(message);
+            });
+
+            player.addListener('playback_error', ({ message }) => {
+                console.error(message);
             });
 
             player.connect();
@@ -98,5 +115,4 @@ window.addEventListener('scroll', function() {
 
     hero.style.opacity = opacity;
     container.style.opacity = 1 - opacity;
-    
 });

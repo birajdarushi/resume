@@ -6,13 +6,11 @@
     <title>Spotify Auth Callback</title>
     <script>
         window.onload = () => {
-    const hash = window.location.hash.substring(1);
-    const accessToken = new URLSearchParams(hash).get('access_token');
-    localStorage.setItem('spotify_access_token', accessToken);
-    // Redirect to another page or back to your main application
-    window.location.href = "https://rushiraj.online";
-};
-
+            const hash = window.location.hash.substring(1);
+            const accessToken = new URLSearchParams(hash).get('access_token');
+            localStorage.setItem('spotify_access_token', accessToken);
+            window.close();
+        };
     </script>
 </head>
 <body>

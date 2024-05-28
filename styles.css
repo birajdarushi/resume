@@ -46,22 +46,6 @@ h1, h2, h3 {
     color: #fff;
     font-family: "Courier New", Courier, monospace;
 }
-.spotify-card {
-    background: #1DB954;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    width: 300px;
-}
-#play-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background: #fff;
-    color: #1DB954;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-}
 .menu-btn {
 font-size: 30px;
  position: fixed;

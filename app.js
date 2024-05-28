@@ -17,29 +17,47 @@ document.addEventListener('click', function(event) {
 document.addEventListener('DOMContentLoaded', () => {
     const clientId = 'd64c225793754c8b930647622b8a2d7f';
     const clientSecret = '17fbc6e2fcd046159e9752a37b01888e';
-    const redirectUri = 'https://rushiraj.online'; // Your redirect URI registered in Spotify Developer Dashboard
+    const redirectUri = 'https://rushiraj.online/callback'; // Your redirect URI registered in Spotify Developer Dashboard
 
     const playButton = document.getElementById('play-button');
     const songTitle = document.getElementById('song-title');
     const songArtist = document.getElementById('song-artist');
 
-    let accessToken = '';
-
-    async function fetchAccessToken() {
-        const response = await fetch('https://accounts.spotify.com/api/token', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'Authorization': 'Basic ' + btoa(`${clientId}:${clientSecret}`)
-            },
-            body: 'grant_type=client_credentials'
-        });
-        const data = await response.json();
-        accessToken = data.access_token;
-        fetchRandomSong();
+    let accessToken = localStorage.getItem('spotify_access_token');
+    
+    if (!accessToken) {
+        authorizeUser();
+    } else {
+        setupPlayer();
     }
 
-    async function fetchRandomSong() {
+    function authorizeUser() {
+        const scopes = 'streaming user-read-email user-read-private';
+        const authUrl = `https://accounts.spotify.com/authorize?response_type=token&client_id=${clientId}&scope=${encodeURIComponent(scopes)}&redirect_uri=${encodeURIComponent(redirectUri)}`;
+        window.location = authUrl;
+    }
+
+    function setupPlayer() {
+        window.onSpotifyWebPlaybackSDKReady = () => {
+            const player = new Spotify.Player({
+                name: 'Web Playback SDK Template',
+                getOAuthToken: cb => { cb(accessToken); }
+            });
+
+            player.addListener('ready', ({ device_id }) => {
+                console.log('Ready with Device ID', device_id);
+                fetchRandomSong(device_id);
+            });
+
+            player.addListener('not_ready', ({ device_id }) => {
+                console.log('Device ID has gone offline', device_id);
+            });
+
+            player.connect();
+        };
+    }
+
+    async function fetchRandomSong(deviceId) {
         const response = await fetch('https://api.spotify.com/v1/recommendations?limit=1&seed_genres=pop', {
             headers: {
                 'Authorization': `Bearer ${accessToken}`
@@ -49,15 +67,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const track = data.tracks[0];
         songTitle.textContent = track.name;
         songArtist.textContent = track.artists.map(artist => artist.name).join(', ');
-        playSong(track.uri);
+        playSong(track.uri, deviceId);
     }
 
-    function playSong(uri) {
+    function playSong(uri, deviceId) {
         playButton.addEventListener('click', () => {
-            fetch(`https://api.spotify.com/v1/me/player/play`, {
+            fetch(`https://api.spotify.com/v1/me/player/play?device_id=${deviceId}`, {
                 method: 'PUT',
                 headers: {
-                    'Authorization': `Bearer ${accessToken}`
+                    'Authorization': `Bearer ${accessToken}`,
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
                     uris: [uri]
@@ -65,8 +84,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
-
-    fetchAccessToken();
 });
 
 window.addEventListener('scroll', function() {

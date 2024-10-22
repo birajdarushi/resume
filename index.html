@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Resume</title>
+    <title>Rushiraj Birajdar - Resume</title>
     <style>
         * {
             margin: 0;
@@ -12,188 +12,176 @@
         }
 
         body {
-            font-family: 'Helvetica', sans-serif;
-            background-color: #f4f8fb;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom right, #e0f2ff, #e8eaff);
             color: #333;
-            padding: 20px;
+            line-height: 1.6;
         }
 
         .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
-        /* Adding fun colors */
-        .colorful-bg {
-            background-color: #ffeeba;
-            border-radius: 15px;
+            max-width: 800px;
+            margin: 40px auto;
             padding: 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            position: relative;
+            background-color: #ffffff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
         }
 
-        /* Hover effect for cards */
-        .colorful-bg:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Doodles */
-        .colorful-bg:before {
-            content: "";
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            width: 50px;
-            height: 50px;
-            background: url('https://img.icons8.com/doodle/48/000000/sun--v1.png') no-repeat;
-            background-size: cover;
-        }
-
-        /* Card hover */
-        .colorful-bg:hover:before {
-            transform: rotate(360deg);
-            transition: transform 0.6s ease;
-        }
-
-        /* Header Section */
         .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
+            text-align: center;
             margin-bottom: 30px;
         }
 
         .header h1 {
-            font-size: 3rem;
-            color: #1a237e;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            position: relative;
-        }
-
-        .header h1:after {
-            content: "✨";
-            font-size: 2rem;
-            position: absolute;
-            top: -20px;
-            right: -30px;
-            animation: sparkle 1s infinite alternate;
-        }
-
-        @keyframes sparkle {
-            0% { opacity: 0.2; }
-            100% { opacity: 1; }
-        }
-
-        .contact-info {
-            font-size: 1rem;
-            color: #444;
-            text-align: right;
-        }
-
-        /* Section styles */
-        .section-title {
-            font-size: 1.2rem;
-            color: #2196f3;
+            font-size: 2.5rem;
+            color: #2c3e50;
             margin-bottom: 10px;
         }
 
+        .header p {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .contact-info a {
+            margin: 0 10px;
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .tab:hover, .tab.active {
+            background-color: #3498db;
+            color: #ffffff;
+        }
+
+        .content {
+            display: none;
+        }
+
+        .content.active {
+            display: block;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+
         ul {
-            list-style: none;
-            padding-left: 0;
-            font-size: 1rem;
+            list-style-type: none;
         }
 
         ul li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
-        /* Doodles in sections */
-        .section-title:before {
-            content: "💡";
-            font-size: 1.5rem;
+        .skill-bar {
+            background-color: #f0f0f0;
+            height: 10px;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background-color: #3498db;
+            border-radius: 5px;
+            transition: width 1s ease-in-out;
+        }
+
+        .project {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .project h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .language {
+            display: inline-block;
+            background-color: #f0f0f0;
+            padding: 5px 10px;
+            border-radius: 15px;
             margin-right: 10px;
+            margin-bottom: 10px;
         }
 
-        /* Right Column */
-        .right-column {
-            width: 35%;
-            min-width: 250px;
-            margin-left: 20px;
-        }
-
-        .left-column {
-            width: 60%;
-            min-width: 300px;
-        }
-
-        /* Contact Info styling */
-        .contact-info p {
-            margin-bottom: 5px;
-        }
-
-        /* Animations for section titles */
-        .section-title:hover {
-            color: #ff9800;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        /* Responsive styling */
-        @media (max-width: 768px) {
+        @media (max-width: 600px) {
             .container {
+                margin: 20px;
+            }
+
+            .tabs {
                 flex-direction: column;
             }
 
-            .left-column, .right-column {
-                width: 100%;
-                margin: 0;
-            }
-
-            .header {
-                text-align: center;
-            }
-
-            .contact-info {
-                text-align: center;
-                margin-top: 15px;
+            .tab {
+                margin-bottom: 5px;
             }
         }
     </style>
 </head>
 <body>
-
-    <!-- Header -->
-    <div class="header">
-        <h1>Rushiraj Birajdar</h1>
-        <div class="contact-info">
-            <p> birajdarushi@gmail.com</p>
-        </div>
-    </div>
-
-    <!-- Main Container -->
     <div class="container">
-        <!-- Left Column -->
-        <div class="left-column">
-            <!-- Education -->
-            <div class="colorful-bg">
-                <p class="section-title">Education</p>
-                <p><strong>Walchand Institute of Technology</strong>, Solapur — B. Tech.</p>
+        <header class="header">
+            <h1>Rushiraj Birajdar</h1>
+            <p>B. Tech. Student | Machine Learning Enthusiast</p>
+            <div class="contact-info">
+                <a href="mailto:birajdarushi@gmail.com">birajdarushi@gmail.com</a>
+            </div>
+        </header>
+
+        <div class="tabs">
+            <button class="tab active" onclick="openTab(event, 'education')">Education</button>
+            <button class="tab" onclick="openTab(event, 'skills')">Skills</button>
+            <button class="tab" onclick="openTab(event, 'projects')">Projects</button>
+            <button class="tab" onclick="openTab(event, 'languages')">Languages</button>
+        </div>
+
+        <div id="education" class="content active">
+            <div class="section">
+                <h2>Education</h2>
+                <h3>Walchand Institute of Technology, Solapur — B. Tech.</h3>
                 <p>November 2022 - Present</p>
                 <ul>
                     <li>Major Degree: Information Technology</li>
                     <li>Minor Degree (Honors): Machine Learning</li>
                     <li>Relevant Coursework: Data Structures, AI, Database Management</li>
                 </ul>
-                <p><strong>Sinhgad Public School</strong>, Solapur — primary education</p>
+                <h3>Sinhgad Public School, Solapur — Primary Education</h3>
                 <p>June 2010 - March 2020</p>
                 <ul>
                     <li>Passed with Distinction</li>
@@ -201,44 +189,83 @@
                     <li>Strengthened: Communication Skills</li>
                 </ul>
             </div>
+        </div>
 
-            <!-- Projects -->
-            <div class="colorful-bg">
-                <p class="section-title">Projects</p>
-                <p><strong>Real Time Data Aggregation Software</strong></p>
+        <div id="skills" class="content">
+            <div class="section">
+                <h2>Skills</h2>
                 <ul>
-                    <li>Developed an aggregation tool using Machine Learning</li>
-                    <li>Models: BERT for NLP, NER, and Summarization</li>
-                    <li>Integrated with real-time data streams</li>
-                    <li><a href="#">Research Paper on this project</a></li>
+                    <li>
+                        Python
+                        <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+                    </li>
+                    <li>
+                        C++
+                        <div class="skill-bar"><div class="skill-progress" style="width: 80%;"></div></div>
+                    </li>
+                    <li>
+                        TensorFlow
+                        <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+                    </li>
+                    <li>
+                        PyTorch
+                        <div class="skill-bar"><div class="skill-progress" style="width: 75%;"></div></div>
+                    </li>
+                    <li>
+                        Data Structures
+                        <div class="skill-bar"><div class="skill-progress" style="width: 95%;"></div></div>
+                    </li>
+                    <li>
+                        Machine Learning
+                        <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+                    </li>
+                    <li>
+                        Natural Language Processing
+                        <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+                    </li>
                 </ul>
             </div>
         </div>
 
-        <!-- Right Column -->
-        <div class="right-column">
-            <!-- Skills -->
-            <div class="colorful-bg">
-                <p class="section-title">Skills</p>
-                <ul>
-                    <li>Programming Languages: Python, C++</li>
-                    <li>Libraries and Frameworks: TensorFlow, PyTorch, Numpy, Pandas</li>
-                    <li>Tools: CUDA, Git, Gradio</li>
-                    <li>Core Competencies: Data Structures, Machine Learning, Natural Language Processing</li>
-                </ul>
+        <div id="projects" class="content">
+            <div class="section">
+                <h2>Projects</h2>
+                <div class="project">
+                    <h3>Real Time Data Aggregation Software</h3>
+                    <ul>
+                        <li>Developed an aggregation tool using Machine Learning</li>
+                        <li>Models: BERT for NLP, NER, and Summarization</li>
+                        <li>Integrated with real-time data streams</li>
+                        <li><a href="#">Research Paper on this project</a></li>
+                    </ul>
+                </div>
             </div>
+        </div>
 
-            <!-- Languages -->
-            <div class="colorful-bg">
-                <p class="section-title">Languages</p>
-                <ul>
-                    <li>English (Proficient)</li>
-                    <li>Marathi (Native)</li>
-                    <li>Hindi (Bilingual)</li>
-                </ul>
+        <div id="languages" class="content">
+            <div class="section">
+                <h2>Languages</h2>
+                <div class="language">English (Proficient)</div>
+                <div class="language">Marathi (Native)</div>
+                <div class="language">Hindi (Bilingual)</div>
             </div>
         </div>
     </div>
 
+    <script>
+        function openTab(evt, tabName) {
+            var i, content, tabs;
+            content = document.getElementsByClassName("content");
+            for (i = 0; i < content.length; i++) {
+                content[i].style.display = "none";
+            }
+            tabs = document.getElementsByClassName("tab");
+            for (i = 0; i < tabs.length; i++) {
+                tabs[i].className = tabs[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
 </body>
 </html>

@@ -1,24 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rushiraj</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #282c34;
-            color: white;
-            font-family: Arial, sans-serif;
-            font-size: 24px;
-        }
-    </style>
+    <title>Rushiraj Birajdar - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    Hey, I'm Rushiraj
+    <div class="scroll-container">
+    <nav class="navbar">
+        <div class="nav-brand">RB</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="projects.html">Projects</a>
+        </div>
+        <div class="menu-btn">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="profile-container">
+            <img src="https://lh3.googleusercontent.com/pw/AP1GczMD5pztGygSei4lMR98xGElgSJVvpngb7NpFrE1OGDHgsBdEmPbZ-Z2lu9zOA1TiTGaw_qJOPiq4MSYWTG7XT-9iejC6RdKXs2iCzz3hzPprXd5OWYpqZspwwT6AR3v8WQjCKdwOGuQj2Jy6Rx70cuk=w1178-h1570-s-no-gm?authuser=0" alt="Profile Photo" class="profile-photo">
+            <div class="intro-text">
+                <h1>Rushiraj Birajdar</h1>
+                <h2>Full-stack Developer & AI Enthusiast</h2>
+                <p>I am a full-stack developer, AI enthusiast, and designer with expertise in ReactJS, Flask, MongoDB, and machine learning. I have built AI-powered applications including Vastra, a funded ecommerce platform.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon linkedin">LinkedIn</a>
+                    <a href="#" class="social-icon twitter">X</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills-section">
+        <h2>Skills & Certifications</h2>
+        <div class="skills-container">
+            <div class="skills-list" id="skillsList">
+                <!-- Skills will be added dynamically via JavaScript -->
+            </div>
+            <div class="certifications-list" id="certificationsList">
+                <!-- Certifications will be added dynamically via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="education-section">
+        <h2>Education</h2>
+        <div class="education-container">
+            <div class="education-card">
+                <h3>Bachelor in Technology</h3>
+                <p>Walchand Institute</p>
+                <p>2022 - Present</p>
+            </div>
+        </div>
+    </section>
+    </div>
+
+    <footer class="contact-section">
+        <h2>Contact Me</h2>
+        <form id="contactForm" class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
-

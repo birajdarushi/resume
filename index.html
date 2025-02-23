@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rushiraj Birajdar - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-blue">
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" id="themeToggle">
+        <label class="switch">
+            <input type="checkbox" id="themeCheckbox">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">RB</div>
+        <div class="nav-links">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <div class="scroll-container">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="dot-matrix"></div>
+            <div class="profile-container">
+                <div class="profile-wrapper">
+                    <img src="https://lh3.googleusercontent.com/pw/AP1GczMD5pztGygSei4lMR98xGElgSJVvpngb7NpFrE1OGDHgsBdEmPbZ-Z2lu9zOA1TiTGaw_qJOPiq4MSYWTG7XT-9iejC6RdKXs2iCzz3hzPprXd5OWYpqZspwwT6AR3v8WQjCKdwOGuQj2Jy6Rx70cuk=w1178-h1570-s-no-gm?authuser=0" 
+                         alt="Profile Photo" 
+                         class="profile-photo">
+                </div>
+                <div class="intro-text">
+                    <h1>Rushiraj Birajdar</h1>
+                    <h2>Full-stack Developer & AI Enthusiast</h2>
+                    <p>I am a full-stack developer, AI enthusiast, and designer with expertise in ReactJS, Flask, MongoDB, and machine learning.</p>
+                    <div class="action-buttons">
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/rushirajbirajdar/" class="social-icon linkedin" target="_blank">LinkedIn</a>
+                            <a href="https://x.com/RushirajBrajdar" class="social-icon twitter" target="_blank">𝕏</a>
+                            <a href="https://github.com/birajdarushi/" class="social-icon github" target="_blank">Github</a>
+                        </div>
+                        <a href="#" class="resume-btn">Download Resume</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section">
+            <div class="split-container">
+                <!-- Left Side - Skills -->
+                <div class="skills-container">
+                    <h2>Skills</h2>
+                    <div id="skillsList" class="skills-list">
+                        <!-- Skills will be added by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Right Side -->
+                <div class="right-container">
+                    <!-- Certifications -->
+                    <div class="certifications-container">
+                        <h2>Certifications</h2>
+                        <div id="certificationsList" class="certifications-list">
+                            <!-- Certifications will be added by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="education-container">
+                        <h2>Education</h2>
+                        <div class="education-card">
+                            <h3>Bachelor in Technology</h3>
+                            <p>Walchand Institute</p>
+                            <p>2022 - Present</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <h2>Contact Me</h2>
+            <form id="contactForm" class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
